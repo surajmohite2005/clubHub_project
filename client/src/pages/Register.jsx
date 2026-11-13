@@ -39,7 +39,7 @@ export default function Register() {
         <form onSubmit={onSubmit} className="space-y-4">
           <Input
             label="Full name"
-            placeholder="Shreyas Patil"
+            placeholder="Enter Name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             error={err && !form.name ? "Enter your name" : ""}

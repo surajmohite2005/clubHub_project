@@ -1,0 +1,30 @@
+/* --- Container.css --- */
+
+.container {
+  /* Corresponds to max-w-7xl */
+  max-width: 1280px;
+
+  /* Corresponds to mx-auto (centers the container) */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Corresponds to px-4 (the default mobile padding) */
+  padding-left: 1rem;  /* 16px */
+  padding-right: 1rem; /* 16px */
+}
+
+/* Corresponds to sm:px-6 (padding for screens 640px and wider) */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;  /* 24px */
+    padding-right: 1.5rem; /* 24px */
+  }
+}
+
+/* Corresponds to lg:px-8 (padding for screens 1024px and wider) */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;  /* 32px */
+    padding-right: 2rem; /* 32px */
+  }
+}

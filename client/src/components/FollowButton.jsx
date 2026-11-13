@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import { useAuth } from "../contexts/AuthContext";
+import './FollowButton.css'; // <-- Import the CSS file
 
 export default function FollowButton({ clubId, initialFollowerCount = 0, initialIsFollowing = false, onChange }) {
   const { user } = useAuth();
@@ -23,27 +24,26 @@ export default function FollowButton({ clubId, initialFollowerCount = 0, initial
 
       onChange?.(data);
     } catch (e) {
-      // Optionally show toast or error message
       console.error("Follow toggle failed", e);
     } finally {
       setLoading(false);
     }
   };
 
+  // Add the 'following' class when the user is following the club
+  const buttonClasses = `follow-button ${following ? 'following' : ''}`;
+
   return (
-    <div className="flex items-center gap-2">
+    <div className="follow-button-container">
       <button
         onClick={toggle}
         disabled={loading}
-        className={`px-3 py-1.5 rounded-md border text-sm ${
-          following
-            ? "bg-gray-900 text-white border-gray-900"
-            : "bg-white text-gray-900 border-gray-300 hover:bg-gray-50"
-        }`}
+        className={buttonClasses}
       >
-        {following ? "Following" : "Follow"}
+        <span className="follow-text">{following ? "Following" : "Follow"}</span>
+        <span className="unfollow-text">Unfollow</span>
       </button>
-      <span className="text-xs text-gray-600">👥 {count}</span>
+      <span className="follower-count">👥 {count}</span>
     </div>
   );
 }

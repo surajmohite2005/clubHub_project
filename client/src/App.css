@@ -1,42 +1,105 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  /* 1. Purn App sathi Poppins font set kela */
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  
+  /* 2. Purn App sathi dark theme background set kela */
+  background-color: #111827; 
+  
+  /* 3. Default text color white set kela */
+  color: #f9fafb; 
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Tumhi dilele baki che styles (.logo, .card, etc.) mi kadhun takle ahet
+   karan te Vite chya default demo page sathi hote. 
+   Apan aapli navin styling vaprat ahot.
+*/
+
+
+/* --- Styles for all form elements --- */
+/* (Hach code Forms.css madhe pan ahe) */
+
+/* --- Main Form Field Container --- */
+.form-field {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* --- Form Field Label --- */
+.form-field__label {
+  display: block;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: #d1d5db;
+  margin-bottom: 0.5rem; /* 8px */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* --- Common styling for Input, Textarea, and Select --- */
+.form-field__input,
+.form-field__textarea,
+.form-field__select {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.875rem; /* 14px */
+  outline: none;
+  background-color: #374151;
+  color: #f9fafb;
+  border: 1px solid #4b5563;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card {
-  padding: 2em;
+/* --- Focus State for all fields --- */
+.form-field__input:focus,
+.form-field__textarea:focus,
+.form-field__select:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); 
 }
 
-.read-the-docs {
-  color: #888;
+/* --- Styling specific to TEXTAREA --- */
+.form-field__textarea {
+  min-height: 120px;
+  resize: vertical;
 }
+
+/* --- Styling specific to SELECT (Dropdown) --- */
+.form-field__select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.7rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25em;
+  padding-right: 2.5rem;
+}
+
+/* --- Error State --- */
+.form-field.has-error .form-field__input,
+.form-field.has-error .form-field__textarea,
+.form-field.has-error .form-field__select {
+  border-color: #ef4444;
+}
+
+.form-field.has-error .form-field__input:focus,
+.form-field.has-error .form-field__textarea:focus,
+.form-field.has-error .form-field__select:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+/* --- Error Message Text --- */
+.form-field__error {
+  display: block;
+  margin-top: 0.5rem; /* 8px */
+  font-size: 0.75rem; /* 12px */
+  color: #fca5a5;
+}
+

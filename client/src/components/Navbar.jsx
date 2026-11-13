@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <header
       className="sticky top-0 z-50 backdrop-blur-sm border-b shadow-sm"
-      style={{ background: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)", boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",color: "white" }}
+      style={{ background: "linear-gradient(145deg, #312E81, #111827)", boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",color: "white" }}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
         {/* Logo */}

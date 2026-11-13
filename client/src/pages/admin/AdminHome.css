@@ -1,0 +1,64 @@
+/* --- AdminHome.css --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.admin-home-container {
+  font-family: 'Poppins', sans-serif;
+  max-width: 896px; /* max-w-4xl */
+  margin: 0 auto;
+  padding: 1.5rem; /* p-6 */
+}
+
+@media (min-width: 640px) {
+  .admin-home-container {
+    padding: 2.5rem; /* Wider padding on larger screens */
+  }
+}
+
+.admin-home__title {
+  font-size: 1.875rem; /* text-2xl */
+  font-weight: 700;
+  color: #f9fafb;
+  margin-bottom: 1.5rem; /* mb-4 */
+}
+
+.admin-home__grid {
+  display: grid;
+  gap: 1.5rem; /* gap-4 */
+}
+
+@media (min-width: 640px) {
+  .admin-home__grid {
+    grid-template-columns: repeat(2, 1fr); /* sm:grid-cols-2 */
+  }
+}
+
+/* --- Admin Navigation Cards --- */
+.admin-card-link {
+  display: block;
+  text-decoration: none;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #3730a3;
+  background: linear-gradient(145deg, #312E81, #111827);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-card-link:hover {
+  transform: translateY(-4px);
+  border-color: #4f46e5;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.admin-card-link__title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.admin-card-link__description {
+  font-size: 0.875rem; /* text-sm */
+  color: #c7d2fe; /* Light purple-blue text */
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}

@@ -1,0 +1,112 @@
+/* --- AnnouncementCard.css --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Main Card Styling --- */
+.announcement-card {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 16px;
+  padding: 1rem; /* 16px */
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.5s ease-out forwards;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(145deg, #312E81, #111827);
+  border: 1px solid #374151;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* 12px gap between elements */
+}
+
+/* Gradient Border Effect on Hover */
+.announcement-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* --- Hover Effects --- */
+.announcement-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.announcement-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Card Content Sections --- */
+.ann-card__header, .ann-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  position: relative;
+  z-index: 2; /* Ensures content is clickable */
+}
+
+.ann-card__preview {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Element Styling --- */
+.ann-card__title {
+  color: #f9fafb;
+  font-weight: 600;
+  font-size: 1rem; /* 16px */
+  transition: color 0.3s ease;
+}
+
+.announcement-card:hover .ann-card__title {
+  color: #c4b5fd; /* Light Lavender */
+}
+
+.ann-card__club-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+  font-weight: 500;
+  font-size: 0.7rem; /* 11.2px */
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap; /* Prevents long names from wrapping */
+  flex-shrink: 0;
+}
+
+.ann-card__preview {
+  color: #d1d5db; /* Lighter text for the body */
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.6;
+}
+
+.ann-card__date {
+  color: #9ca3af;
+  font-size: 0.75rem; /* 12px */
+}
+
+.ann-card__link {
+  color: #a78bfa; /* Lavender */
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.ann-card__link:hover {
+  color: #ddd6fe; /* Lighter lavender on hover */
+  border-bottom-color: #ddd6fe;
+}

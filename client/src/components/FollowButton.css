@@ -1,0 +1,75 @@
+/* --- FollowButton.css --- */
+@import url('https://fonts.googleapis.comcom/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.follow-button-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Base Button Style --- */
+.follow-button {
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 6px 14px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid;
+  /* For the Unfollow text switch */
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- "Follow" State (Default) --- */
+.follow-button {
+  background-color: transparent;
+  color: #f9fafb;
+  border-color: #4b5563; /* Gray border */
+}
+
+.follow-button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #6b7280;
+}
+
+/* --- "Following" State --- */
+/* --- "Following" State (CHANGED) --- */
+.follow-button.following {
+  /* NEW: Using a deep purple to show the active state */
+  background-color: #5b21b6; 
+  color: #ddd6fe; /* Light lavender text for better contrast */
+  border-color: #5b21b6;
+}
+/* --- "Unfollow" Hover Effect --- */
+.follow-button .unfollow-text {
+  display: none;
+}
+
+.follow-button.following:hover:not(:disabled) {
+  background-color: #fee2e2; /* Light Red */
+  color: #b91c1c; /* Dark Red */
+  border-color: #fecaca;
+}
+
+.follow-button.following:hover:not(:disabled) .follow-text {
+  display: none;
+}
+
+.follow-button.following:hover:not(:disabled) .unfollow-text {
+  display: inline;
+}
+
+/* --- Loading / Disabled State --- */
+.follow-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Follower Count --- */
+.follower-count {
+  color: #9ca3af; /* Light gray for secondary text */
+  font-size: 0.8rem;
+  font-weight: 500;
+}

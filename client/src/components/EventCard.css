@@ -1,0 +1,106 @@
+/* --- EventCard.css (Complete & Corrected Code) --- */
+
+/* Using the Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Main Card Styling --- */
+.event-card {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.5s ease-out forwards;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(145deg, #312E81, #111827);
+  border: 1px solid #374151;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Gradient Border Effect on Hover */
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, #a855f7, #ec4899); /* Purple to Pink */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  /* z-index is 1 by default with position: absolute */
+}
+
+/* --- THE FIX for the unclickable button --- */
+/* This lifts all content above the ::before gradient layer */
+.event-card > div {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Hover Effects --- */
+.event-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.event-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Card Content Styling --- */
+.event-card__date, .event-card__host {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+.event-card__title {
+  color: #f9fafb;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.event-card:hover .event-card__title {
+  color: #c4b5fd;
+}
+
+.event-card__category {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
+  font-weight: 500;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* --- Button Styling --- */
+.event-card__button {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  text-align: center;
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+}
+
+.event-card__button:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+}
+
+.event-card__button:active {
+  transform: scale(0.98);
+}
